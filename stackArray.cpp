@@ -69,49 +69,5 @@ void displayStack(StackArray s)
 }
 int main()
 {
-	//local variables
-	int bookID, softwareBooks = 0, hardwareBooks = 0, otherBooks = 0;
-
-	cout << "Set size of stack: ";
-	int sizeOfStack;
-	cin >> sizeOfStack;
-
-	StackArray s(sizeOfStack);
-
-	cout << "How many books you want to add into stack: ";
-	int noOfBooks;
-	cin >> noOfBooks;
-
-	for (int i = 0; i < noOfBooks; i++)
-	{
-		if (!s.isFull())
-		{
-			cout << "\nEnter Book identity number that you want to insert into stack: ";
-			cin >> bookID;
-
-			if (bookID % 8 == 0)
-			{
-				s.push(bookID);
-				softwareBooks++;
-			}
-
-			else if (bookID % 5 == 0)
-			{
-				s.push(bookID);
-				hardwareBooks++;
-			}
-
-			else
-			{
-				s.push(bookID);
-				otherBooks++;
-			}
-		}
-	}
-
-	cout << "\n\nTotal Software Book/Books = " << softwareBooks;
-	cout << "\n\nTotal Hardware Book/Books = " << softwareBooks;
-	cout << "\n\nTotal Other Book/Books = " << softwareBooks;
-
-
+	
 }
