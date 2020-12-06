@@ -3,62 +3,61 @@ using namespace std;
 
 class StackArray
 {
-public:
-	StackArray(int stackSize);
-	int isFull();
-	int isEmpty();
-	int top();
-	void push(int data);
-	int pop();
-	~StackArray();
-
 private:
-	int* stackArray;
-	int stackSize;
-	int current;
+	int _current;
+	int noOfElements;
+	int _capacity;
+	int *s;
+
+public:
+	StackArray(int capacity);
+	bool isEmpty();
+	bool isFull();
+	void push(int value);
+	void pop();
+	int top();
 };
 
-StackArray::StackArray(int stackSize)
+StackArray::StackArray(int capacity)
 {
-	this->stackSize = stackSize;
-	stackArray = new int[stackSize];
-	current = -1;
+	s = new int[capacity];
+	_capacity = capacity;
+	noOfElements = 0;
+	_current = -1;
+}
+bool StackArray::isEmpty()
+{
+	if (_current == -1)
+	{
+		return true;
+	}
+	return false;
 }
 
-int StackArray::isFull()
+bool StackArray::isFull()
 {
-	if (current == stackSize - 1)
-		return 1;
-	return 0;
+	if (_current == _capacity - 1)
+	{
+		return true;
+	}
+	return false;
 }
 
-int StackArray::isEmpty()
+void StackArray::push(int value)
 {
-	if (current == -1)
-		return 1;
-	return 0;
+	s[++_current] = value;
+	noOfElements++;
 }
 
+void StackArray::pop()
+{
+	s[_current--];
+	noOfElements--;
+}
 int StackArray::top()
 {
-	return current;
+	return s[_current];
 }
-
-void StackArray::push(int data)
-{
-	stackArray[++current] = data;
-}
-
-int StackArray::pop()
-{
-	return stackArray[current--];
-}
-
-StackArray::~StackArray()
-{
-	delete[]stackArray;
-}
-
 void displayStack(StackArray s)
 {
 	while (!s.isEmpty())
@@ -67,7 +66,8 @@ void displayStack(StackArray s)
 		s.pop();
 	}
 }
-int main()
+int main(int argc, char const *argv[])
 {
-	
+		
+	return 0;
 }
